@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -38,6 +39,7 @@ import test.service.impl.UserDetailsServiceImpl;
 @EnableWebMvc
 @ComponentScan("test")
 @EnableTransactionManagement
+@Import(LocalBeansConfig.class)
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -104,20 +106,4 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
 	public TransactionInterceptor transactionInterceptor() {
 		return new TransactionInterceptor(transactionManager(), annotationTransactionAttributeSource());
 	}
-
-	@Bean
-	public DelegatingFilterProxy springSecurityFilterChain() {
-		return new DelegatingFilterProxy();
-	}
-
-	@Bean
-	public HomoService homoService() {
-		return new HomoServiceImpl();
-	}
-
-	@Bean
-	public HomoDao homoDao() {
-		return new HomoDaoImpl();
-	}
-
 }
