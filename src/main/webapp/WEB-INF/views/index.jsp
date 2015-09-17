@@ -7,13 +7,17 @@
 <!doctype html>
 <html>
 <head>
-<title>Test application</title>
+<title>Система добавления человеков</title>
 </head>
 <body>
 		<sec:authorize access="isAuthenticated()">
 			<p>
 				Вы вошли как <sec:authentication property="principal.username" />
 			</p>
+			<form action="<c:url value="/logout" />" method="POST">
+			<input type="submit" value="Выйти"/>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </form>
 			<p>Теперь давайте добавлять человеков</p>
 			<c:url var="addHomoUrl" value="/homo.add" />
 			<form:form action="${addHomoUrl}" method="POST" commandName="homoDto">
@@ -63,6 +67,16 @@
 		</sec:authorize>
 
 		<sec:authorize access="!isAuthenticated()">
+		    <c:if test="${!empty param.error}">
+		    <div>
+		    Не угадали пароль!
+		    </div>
+		    </c:if>
+		    <c:if test="${!empty param.logout}">
+		    <div>
+		    Вы успешно вышли из системы добавления человеков!
+		    </div>
+		    </c:if>
 			<c:url var="loginUrl" value="/j_spring_security_check" />
 			<form action="${loginUrl}" method="POST">
 				<div>
@@ -72,6 +86,7 @@
 				<input type="password" name="j_password" placeholder="Пароль" required="true"/>
 				</div>
 				<input type="submit" value="Войти"/>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</form>
 		</sec:authorize>
 </body>

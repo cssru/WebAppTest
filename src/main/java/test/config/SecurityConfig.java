@@ -30,18 +30,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("*").denyAll()
                 .antMatchers("/resources/*.sql").denyAll()
                 .antMatchers("/resources/**", "/**").permitAll()
-                .antMatchers("/", "/index").permitAll()
+                .antMatchers("/").permitAll()
                 .antMatchers("/homo.add").authenticated();
         http.formLogin()
                 .loginPage("/")
-                .loginProcessingUrl("/j_spring_security_check")
-                .failureUrl("/badlogin")
                 .usernameParameter("j_username")
-                .passwordParameter("j_password");
+                .passwordParameter("j_password")
+                .loginProcessingUrl("/j_spring_security_check")
+                .failureUrl("/?error=1");
 
         http.logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/?logout=1")
                 .invalidateHttpSession(true);
     }
 }

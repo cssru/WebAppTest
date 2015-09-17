@@ -71,7 +71,7 @@ public class Homo {
     @Override
     public String toString() {
         return new StringBuilder(surname).append(" ").append(name).append(" ").append(lastName)
-                .append(", ").append(age).append(getSuffix(age)).append(" ").toString();
+                .append(", ").append(age).append(" ").append(getSuffix(age)).toString();
     }
 
     private String getSuffix(int num) {
