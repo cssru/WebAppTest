@@ -56,7 +56,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public SessionFactory sessionFactory() {
+    public SessionFactory sessionFactory() throws IOException {
         LocalSessionFactoryBean result = new LocalSessionFactoryBean();
         result.setDataSource(dataSource());
         result.setPackagesToScan("test.domain");
@@ -66,16 +66,12 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 
         result.setHibernateProperties(hibernateProperties);
-        try {
-            result.afterPropertiesSet();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        result.afterPropertiesSet();
         return result.getObject();
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager() {
+    public PlatformTransactionManager transactionManager() throws IOException {
         HibernateTransactionManager result = new HibernateTransactionManager(sessionFactory());
         return result;
     }
