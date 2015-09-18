@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class HomoDaoImpl implements HomoDao {
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     public void add(Homo homo) {
         sessionFactory.getCurrentSession().save(homo);
