@@ -9,9 +9,6 @@ import test.service.HomoService;
 
 import java.util.List;
 
-/**
- * Created by css on 14.09.15.
- */
 @Service
 public class HomoServiceImpl implements HomoService {
     @Autowired

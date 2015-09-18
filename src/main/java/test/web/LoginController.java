@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import test.dto.HomoDto;
 import test.service.HomoService;
 
-/**
- * Created by css on 14.09.15.
- */
 @Controller
 public class LoginController {
 

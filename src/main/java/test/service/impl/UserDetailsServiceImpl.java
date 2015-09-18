@@ -12,19 +12,19 @@ import java.util.HashSet;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	public UserDetails loadUserByUsername(String userName)
-			throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String userName)
+            throws UsernameNotFoundException {
 
-		if (userName == null || !userName.equals("supervisor")) {
-			throw new UsernameNotFoundException("Пользователь не найден");
-		}
+        if (userName == null || !userName.equals("supervisor")) {
+            throw new UsernameNotFoundException("Пользователь не найден");
+        }
 
-		UserDetails userDetails =
-				new User(userName,
-						"password",
+        UserDetails userDetails =
+                new User(userName,
+                        "password",
                         new HashSet<GrantedAuthority>());
 
-		return userDetails;
-	}
+        return userDetails;
+    }
 
 }

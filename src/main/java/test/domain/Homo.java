@@ -1,32 +1,26 @@
 package test.domain;
 
-
 import javax.persistence.*;
 
-/**
- * Created by css on 14.09.15.
- */
 @Entity
-@Table(name="people")
+@Table(name = "people")
 public class Homo {
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @Column
+    @GeneratedValue
     private Long id;
 
-    @Column (name="surname")
+    @Column (nullable=false)
     private String surname;
 
-    @Column (name="name")
+    @Column (nullable=false)
     private String name;
 
-    @Column (name="lastname")
-    private String lastName;
+    @Column (nullable=false)
+    private String lastname;
 
-    @Column (name="age")
+    @Column (nullable=false)
     private Integer age;
-
-    public Homo() {}
 
     public Long getId() {
         return id;
@@ -52,12 +46,12 @@ public class Homo {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     public Integer getAge() {
@@ -68,16 +62,8 @@ public class Homo {
         this.age = age;
     }
 
-    @Override
-    public String toString() {
-        return new StringBuilder(surname).append(" ").append(name).append(" ").append(lastName)
-                .append(", ").append(age).append(" ").append(getSuffix(age)).toString();
+    public String getFullname() {
+        return new StringBuilder(surname).append(" ").append(name).append(" ").append(lastname).toString();
     }
 
-    private String getSuffix(int num) {
-        int lastCypher = num % 10;
-        if (lastCypher == 1) return "год";
-        if (lastCypher > 1 && lastCypher < 5) return "года";
-        return "лет";
-    }
 }

@@ -41,8 +41,8 @@
                 <label for="lastname">Отчество</label>
                 </div>
                 <div>
-  				<form:input id="lastname" path="lastName"/>
-  				<form:errors path="lastName"/>
+  				<form:input id="lastname" path="lastname"/>
+  				<form:errors path="lastname"/>
   				</div>
 
 				<div>
@@ -60,9 +60,18 @@
 			</form:form>
 
 			<c:if test="${!empty allHomo}">
+			<table>
+			<thead>
+			<th>ФИО</th><th>Возраст</th>
+			</thead>
+			<tbody>
 			<c:forEach items="${allHomo}" var="nextHomo">
-			   <p><strong>${nextHomo}</strong></p>
+			<tr>
+			   <td>${nextHomo.fullname}</td><td>${nextHomo.age}</td>
+			</tr>
 			</c:forEach>
+			</tbody>
+			</table>
 			</c:if>
 		</sec:authorize>
 

@@ -1,38 +1,25 @@
 package test.dto;
 
-import test.validation.NotEmpty;
-import test.validation.Positive;
-
-import javax.validation.GroupSequence;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-/**
- * Created by css on 14.09.15.
- */
-
-@GroupSequence({
-        HomoDto.class,
-        HomoDto.FirstGroup.class,
-        HomoDto.SecondGroup.class})
+import javax.validation.constraints.Size;
 
 public class HomoDto {
-    @NotNull (groups = FirstGroup.class)
-    @NotEmpty (groups = SecondGroup.class)
+    @NotNull
+    @Size(min=1)
     private String surname;
 
-    @NotNull (groups = FirstGroup.class)
-    @NotEmpty (groups = SecondGroup.class)
+    @NotNull
+    @Size(min=1)
     private String name;
 
-    @NotNull (groups = FirstGroup.class)
-    @NotEmpty (groups = SecondGroup.class)
-    private String lastName;
+    @NotNull
+    @Size(min=1)
+    private String lastname;
 
-    @NotNull (groups = FirstGroup.class)
-    @Positive (groups = SecondGroup.class)
+    @NotNull
+    @Min(1)
     private Integer age;
-
-    public HomoDto() {}
 
     public String getSurname() {
         return surname;
@@ -50,12 +37,12 @@ public class HomoDto {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastName) {
+        this.lastname = lastName;
     }
 
     public Integer getAge() {
@@ -65,11 +52,4 @@ public class HomoDto {
     public void setAge(Integer age) {
         this.age = age;
     }
-
-    public interface FirstGroup {
-    }
-
-    public interface SecondGroup {
-    }
-
 }

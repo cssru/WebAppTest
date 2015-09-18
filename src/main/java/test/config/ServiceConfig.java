@@ -7,11 +7,8 @@ import test.dao.impl.HomoDaoImpl;
 import test.service.HomoService;
 import test.service.impl.HomoServiceImpl;
 
-/**
- * Created by css on 17.09.15.
- */
 @Configuration
-public class LocalBeansConfig {
+public class ServiceConfig {
     @Bean
     public HomoService homoService() {
         return new HomoServiceImpl();

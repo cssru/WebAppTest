@@ -8,9 +8,6 @@ import test.domain.Homo;
 
 import java.util.List;
 
-/**
- * Created by css on 14.09.15.
- */
 @Repository
 public class HomoDaoImpl implements HomoDao {
     @Autowired

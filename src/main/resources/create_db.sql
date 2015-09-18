@@ -1,7 +1,7 @@
 CREATE TABLE people (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  surname VARCHAR(250),
-  name VARCHAR(30),
-  lastname VARCHAR(30),
-  age INTEGER
+  surname VARCHAR(250) NOT NULL,
+  name VARCHAR(30) NOT NULL,
+  lastname VARCHAR(30) NOT NULL,
+  age INTEGER NOT NULL
 );

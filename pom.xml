@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,9 +17,8 @@
         <!-- Web -->
         <jsp.version>2.2</jsp.version>
         <jstl.version>1.2</jstl.version>
-        <servlet.version>3.0-alpha-1</servlet.version>
 
-        <!-- Hibernate / JPA -->
+        <!-- Hibernate -->
         <hibernate.version>4.2.1.Final</hibernate.version>
 
         <!-- H2 database -->
@@ -88,6 +87,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>${jstl.version}</version>
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -133,6 +133,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Hibernate -->
