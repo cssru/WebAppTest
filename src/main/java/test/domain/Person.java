@@ -8,22 +8,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "people")
-public class Homo {
+public class Person {
     @Id
     @Column
     @GeneratedValue
     private Long id;
 
-    @Column (nullable=false)
+    @Column (nullable = false)
     private String surname;
 
-    @Column (nullable=false)
+    @Column (nullable = false)
     private String name;
 
-    @Column (nullable=false)
+    @Column (nullable = false)
     private String lastname;
 
-    @Column (nullable=false)
+    @Column (nullable = false)
     private Integer age;
 
     public Long getId() {

@@ -19,8 +19,8 @@
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form>
 			<p>Теперь давайте добавлять человеков</p>
-			<c:url var="addHomoUrl" value="/homo.add" />
-			<form:form action="${addHomoUrl}" method="POST" commandName="homoDto">
+			<c:url var="addPersonUrl" value="/person.add" />
+			<form:form action="${addPersonUrl}" method="POST" commandName="personDto">
                 <div>
                 <label for="surname">Фамилия</label>
                 </div>
@@ -59,15 +59,15 @@
 
 			</form:form>
 
-			<c:if test="${!empty allHomo}">
+			<c:if test="${!empty allPersons}">
 			<table>
 			<thead>
 			<th>ФИО</th><th>Возраст</th>
 			</thead>
 			<tbody>
-			<c:forEach items="${allHomo}" var="nextHomo">
+			<c:forEach items="${allPersons}" var="nextPerson">
 			<tr>
-			   <td>${nextHomo.fullname}</td><td>${nextHomo.age}</td>
+			   <td>${nextPerson.fullname}</td><td>${nextPerson.age}</td>
 			</tr>
 			</c:forEach>
 			</tbody>

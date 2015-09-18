@@ -3,24 +3,24 @@ package test.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import test.dao.HomoDao;
-import test.domain.Homo;
-import test.service.HomoService;
+import test.dao.PersonDao;
+import test.domain.Person;
+import test.service.PersonService;
 
 import java.util.List;
 
 @Service
-public class HomoServiceImpl implements HomoService {
+public class PersonServiceImpl implements PersonService {
     @Autowired
-    private HomoDao homoDao;
+    private PersonDao personDao;
 
     @Transactional
-    public void add(Homo homo) {
-        homoDao.add(homo);
+    public void add(Person person) {
+        personDao.add(person);
     }
 
     @Transactional (readOnly = true)
-    public List<Homo> list() {
-        return homoDao.list();
+    public List<Person> list() {
+        return personDao.list();
     }
 }

@@ -2,15 +2,15 @@ package test.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import test.service.HomoService;
-import test.service.impl.HomoServiceImpl;
+import test.service.PersonService;
+import test.service.impl.PersonServiceImpl;
 
 @Configuration
 public class ServiceConfig {
 
     @Bean
-    public HomoService homoService() {
-        return new HomoServiceImpl();
+    public PersonService personService() {
+        return new PersonServiceImpl();
     }
 
 }

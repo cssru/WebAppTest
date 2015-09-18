@@ -5,27 +5,22 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import test.dto.HomoDto;
-import test.service.HomoService;
+import test.dto.PersonDto;
+import test.service.PersonService;
 
 @Controller
 public class LoginController {
 
     @Autowired
-    HomoService homoService;
+    PersonService personService;
 
     @RequestMapping("/")
     public String login(Model model) {
         if (SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
-            model.addAttribute("allHomo", homoService.list());
-            model.addAttribute("homoDto", new HomoDto());
+            model.addAttribute("allPersons", personService.list());
+            model.addAttribute("personDto", new PersonDto());
         }
         return "index";
-    }
-
-    @RequestMapping("/badlogin")
-    public String badLogin() {
-        return "badlogin";
     }
 
 }

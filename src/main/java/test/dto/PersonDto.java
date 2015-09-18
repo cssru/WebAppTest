@@ -4,17 +4,17 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class HomoDto {
+public class PersonDto {
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String surname;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String name;
 
     @NotNull
-    @Size(min=1)
+    @Size(min = 1)
     private String lastname;
 
     @NotNull
