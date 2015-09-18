@@ -19,7 +19,7 @@ public class HomoServiceImpl implements HomoService {
         homoDao.add(homo);
     }
 
-    @Transactional
+    @Transactional (readOnly = true)
     public List<Homo> list() {
         return homoDao.list();
     }
