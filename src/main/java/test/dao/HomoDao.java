@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface HomoDao {
     public void add(Homo homo);
-
-    public List list();
+    public List<Homo> list();
 }
