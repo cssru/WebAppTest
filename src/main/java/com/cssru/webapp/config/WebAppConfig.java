@@ -56,7 +56,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     public SessionFactory sessionFactory() throws IOException {
         LocalSessionFactoryBean result = new LocalSessionFactoryBean();
         result.setDataSource(dataSource());
-        result.setPackagesToScan("test.domain");
+        result.setPackagesToScan("com.cssru.webapp.domain");
         Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.show_sql", true);
         hibernateProperties.put("hibernate.show_statistics", true);

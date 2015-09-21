@@ -24,14 +24,14 @@
             <column name="login" value="admin"/>
             <column name="password" value="123"/>
             <column name="locked" value="0"/>
-            <column name="expires" value="0"/>
+            <column name="expired" value="0"/>
             <column name="enabled" value="1"/>
         </insert>
         <insert tableName="logins">
             <column name="login" value="user"/>
             <column name="password" value="456"/>
             <column name="locked" value="0"/>
-            <column name="expires" value="0"/>
+            <column name="expired" value="0"/>
             <column name="enabled" value="1"/>
         </insert>
         <rollback>
