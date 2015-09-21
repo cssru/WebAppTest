@@ -5,7 +5,6 @@ import test.domain.Person;
 
 import java.util.List;
 
-@Service
 public interface PersonService {
     void add(Person person);
     List<Person> list();
