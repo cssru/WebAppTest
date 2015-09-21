@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
+import java.util.Collections;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserDetails userDetails =
                 new User(userName,
                         "password", true, true, true, true,
-                        new HashSet<GrantedAuthority>());
+                        Collections.<GrantedAuthority>emptySet());
 
         return userDetails;
     }
