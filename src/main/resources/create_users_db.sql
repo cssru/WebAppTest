@@ -13,5 +13,5 @@ CREATE TABLE confirmations (
   confirmation_code VARCHAR(30) NOT NULL
 );
 
-INSERT INTO users (login, password, locked, expired, enabled) VALUES ("admin", "123", 0, 0, 1);
-INSERT INTO users (login, password, locked, expired, enabled) VALUES ("user", "456", 0, 0, 1);
+INSERT INTO users (login, password, locked, expired, enabled) VALUES ('admin', '123', 0, 0, 1);
+INSERT INTO users (login, password, locked, expired, enabled) VALUES ('user', '456', 0, 0, 1);
