@@ -1,28 +1,32 @@
 package com.cssru.webapp.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table
 public class Login {
     @Id
     @Column
     @GeneratedValue
     private Long id;
 
-    @Column (nullable = false)
+    @Column (nullable = false, unique = true, length = 30)
     private String login;
 
-    @Column (nullable = false)
+    @Column (nullable = false, length = 30)
     private String password;
 
-    @Column
+    @Column (nullable = false)
     private Boolean locked;
 
-    @Column
+    @Column (nullable = false)
     private Boolean expired;
 
-    @Column
+    @Column (nullable = false)
     private Boolean enabled;
 
     public Long getId() {
