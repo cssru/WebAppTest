@@ -17,6 +17,7 @@ public class LoginDaoImpl implements LoginDao {
         return (Login) sessionFactory
                 .getCurrentSession()
                 .createQuery("from Login as u where u.login = :loginName")
+                .setParameter("loginName", userName)
                 .uniqueResult();
     }
 
