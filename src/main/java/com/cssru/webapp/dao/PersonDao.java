@@ -1,6 +1,6 @@
-package test.dao;
+package com.cssru.webapp.dao;
 
-import test.domain.Person;
+import com.cssru.webapp.domain.Person;
 
 import java.util.List;
 

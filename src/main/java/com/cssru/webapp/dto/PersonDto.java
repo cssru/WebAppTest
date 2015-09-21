@@ -1,4 +1,4 @@
-package test.dto;
+package com.cssru.webapp.dto;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

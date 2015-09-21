@@ -1,11 +1,11 @@
-package test.service.impl;
+package com.cssru.webapp.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import test.dao.PersonDao;
-import test.domain.Person;
-import test.service.PersonService;
+import com.cssru.webapp.dao.PersonDao;
+import com.cssru.webapp.domain.Person;
+import com.cssru.webapp.service.PersonService;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package test.config;
+package com.cssru.webapp.config;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;

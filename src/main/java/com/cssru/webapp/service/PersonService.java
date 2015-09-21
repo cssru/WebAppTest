@@ -1,6 +1,7 @@
-package test.service;
+package com.cssru.webapp.service;
 
-import test.domain.Person;
+import com.cssru.webapp.domain.Person;
+import com.cssru.webapp.domain.Person;
 
 import java.util.List;
 

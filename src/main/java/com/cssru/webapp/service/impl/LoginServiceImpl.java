@@ -1,11 +1,14 @@
-package test.service.impl;
+package com.cssru.webapp.service.impl;
 
+import com.cssru.webapp.dao.LoginDao;
+import com.cssru.webapp.domain.Login;
+import com.cssru.webapp.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import test.dao.LoginDao;
-import test.domain.Login;
-import test.service.LoginService;
+import com.cssru.webapp.dao.LoginDao;
+import com.cssru.webapp.domain.Login;
+import com.cssru.webapp.service.LoginService;
 
 import java.util.List;
 

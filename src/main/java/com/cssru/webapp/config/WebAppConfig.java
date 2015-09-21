@@ -1,10 +1,9 @@
-package test.config;
+package com.cssru.webapp.config;
 
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -24,9 +23,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("test")
+@ComponentScan("com.cssru.webapp")
 @EnableTransactionManagement
-@Import({ServiceConfig.class, DaoConfig.class})
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
     @Override

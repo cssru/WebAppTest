@@ -1,5 +1,6 @@
-package test.service.impl;
+package com.cssru.webapp.service.impl;
 
+import com.cssru.webapp.domain.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -7,8 +8,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import test.domain.Login;
-import test.service.LoginService;
+import com.cssru.webapp.domain.Login;
+import com.cssru.webapp.service.LoginService;
 
 import java.util.Collections;
 

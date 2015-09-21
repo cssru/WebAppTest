@@ -1,4 +1,4 @@
-package test.domain;
+package com.cssru.webapp.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

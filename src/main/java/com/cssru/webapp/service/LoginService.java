@@ -1,6 +1,7 @@
-package test.service;
+package com.cssru.webapp.service;
 
-import test.domain.Login;
+import com.cssru.webapp.domain.Login;
+import com.cssru.webapp.domain.Login;
 
 import java.util.List;
 

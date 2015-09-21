@@ -1,4 +1,4 @@
-package test.web;
+package com.cssru.webapp.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,9 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import test.domain.Person;
-import test.dto.PersonDto;
-import test.service.PersonService;
+import com.cssru.webapp.domain.Person;
+import com.cssru.webapp.dto.PersonDto;
+import com.cssru.webapp.service.PersonService;
 
 import javax.validation.Valid;
 

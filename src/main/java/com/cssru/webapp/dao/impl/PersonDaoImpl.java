@@ -1,10 +1,10 @@
-package test.dao.impl;
+package com.cssru.webapp.dao.impl;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import test.dao.PersonDao;
-import test.domain.Person;
+import com.cssru.webapp.dao.PersonDao;
+import com.cssru.webapp.domain.Person;
 
 import java.util.List;
 
