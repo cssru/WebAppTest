@@ -17,7 +17,7 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     LoginDao loginDao;
 
-    @Transactional
+    @Transactional (readOnly = true)
     public Login get(String loginName) {
         return loginDao.get(loginName);
     }
@@ -27,7 +27,7 @@ public class LoginServiceImpl implements LoginService {
         loginDao.add(login);
     }
 
-    @Transactional
+    @Transactional (readOnly = true)
     public List<Login> list() {
         return loginDao.list();
     }

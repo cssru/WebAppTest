@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class LoginDaoImpl implements LoginDao {
     @Autowired
-    SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     public Login get(String userName) {
         return (Login) sessionFactory
