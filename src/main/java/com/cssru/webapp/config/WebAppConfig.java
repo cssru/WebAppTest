@@ -4,6 +4,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
@@ -25,6 +26,7 @@ import java.util.Properties;
 @EnableWebMvc
 @ComponentScan("com.cssru.webapp")
 @EnableTransactionManagement
+@Import(LiquibaseConfig.class)
 public class WebAppConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -44,10 +46,8 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
     public DataSource dataSource() {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase database = builder
-                .setName("test")
+                .setName("peopleDb")
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("create_db.sql")
-                .addScript("create_users_db.sql")
                 .build();
         return database;
     }
