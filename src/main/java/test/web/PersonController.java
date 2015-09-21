@@ -34,7 +34,7 @@ public class PersonController {
         personService.add(person);
         model.addAttribute("personDto", new PersonDto());
 
-        model.addAttribute("allPersons", personService.list());
+        model.addAttribute("people", personService.list());
         return "index";
     }
 }

@@ -59,13 +59,13 @@
 
 			</form:form>
 
-			<c:if test="${!empty allPersons}">
+			<c:if test="${!empty people}">
 			<table>
 			<thead>
 			<th>ФИО</th><th>Возраст</th>
 			</thead>
 			<tbody>
-			<c:forEach items="${allPersons}" var="nextPerson">
+			<c:forEach items="${people}" var="nextPerson">
 			<tr>
 			   <td>
 			   <c:out value="${nextPerson.fullname}"/>

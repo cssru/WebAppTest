@@ -16,11 +16,14 @@ public class WebAppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(WebAppConfig.class);
         context.register(SecurityConfig.class);
+
         ContextLoaderListener listener = new ContextLoaderListener(context);
         servletContext.addListener(listener);
+
         DelegatingFilterProxy filter = new DelegatingFilterProxy("springSecurityFilterChain");
         servletContext.addFilter("springSecurityFilterChain", filter).addMappingForUrlPatterns(null, false, "/*");
         context.setServletContext(servletContext);
+
         DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
         ServletRegistration.Dynamic servlet = servletContext.addServlet("mainservlet", dispatcherServlet);
         servlet.setLoadOnStartup(1);
