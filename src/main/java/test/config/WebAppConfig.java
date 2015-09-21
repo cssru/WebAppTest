@@ -49,6 +49,7 @@ public class WebAppConfig extends WebMvcConfigurerAdapter {
                 .setName("test")
                 .setType(EmbeddedDatabaseType.H2)
                 .addScript("create_db.sql")
+                .addScript("create_users_db.sql")
                 .build();
         return database;
     }
