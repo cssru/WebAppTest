@@ -21,7 +21,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         UserDetails userDetails =
                 new User(userName,
-                        "password",
+                        "password", true, true, true, true,
                         new HashSet<GrantedAuthority>());
 
         return userDetails;
