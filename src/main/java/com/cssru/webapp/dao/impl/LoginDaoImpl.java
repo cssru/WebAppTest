@@ -13,6 +13,7 @@ public class LoginDaoImpl implements LoginDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
     public Login get(String userName) {
         return (Login) sessionFactory
                 .getCurrentSession()
@@ -21,11 +22,14 @@ public class LoginDaoImpl implements LoginDao {
                 .uniqueResult();
     }
 
+    @Override
     public void add(Login login) {
         sessionFactory.getCurrentSession().save(login);
     }
 
+    @Override
     public List<Login> list() {
         return sessionFactory.getCurrentSession().createQuery("from Login").list();
     }
+
 }

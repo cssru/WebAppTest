@@ -15,11 +15,13 @@ public class PersonServiceImpl implements PersonService {
     private PersonDao personDao;
 
     @Transactional
+    @Override
     public void add(Person person) {
         personDao.add(person);
     }
 
     @Transactional (readOnly = true)
+    @Override
     public List<Person> list() {
         return personDao.list();
     }

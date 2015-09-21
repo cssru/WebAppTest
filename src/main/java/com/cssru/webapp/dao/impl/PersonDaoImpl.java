@@ -13,11 +13,14 @@ public class PersonDaoImpl implements PersonDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Override
     public void add(Person person) {
         sessionFactory.getCurrentSession().save(person);
     }
 
+    @Override
     public List<Person> list() {
         return sessionFactory.getCurrentSession().createQuery("from Person").list();
     }
+
 }

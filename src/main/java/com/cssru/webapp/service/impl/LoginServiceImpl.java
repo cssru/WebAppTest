@@ -18,16 +18,19 @@ public class LoginServiceImpl implements LoginService {
     LoginDao loginDao;
 
     @Transactional (readOnly = true)
+    @Override
     public Login get(String loginName) {
         return loginDao.get(loginName);
     }
 
     @Transactional
+    @Override
     public void add(Login login) {
         loginDao.add(login);
     }
 
     @Transactional (readOnly = true)
+    @Override
     public List<Login> list() {
         return loginDao.list();
     }
