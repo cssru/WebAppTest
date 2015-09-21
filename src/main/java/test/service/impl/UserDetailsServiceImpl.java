@@ -11,17 +11,19 @@ import java.util.Collections;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+    private String USER_NAME = "supervisor";
+    private String PASSWORD = "password";
 
     public UserDetails loadUserByUsername(String userName)
             throws UsernameNotFoundException {
 
-        if (userName == null || !userName.equals("supervisor")) {
-            throw new UsernameNotFoundException("Пользователь не найден");
+        if (USER_NAME.equals(userName)) {
+            throw new UsernameNotFoundException("User not found");
         }
 
         UserDetails userDetails =
                 new User(userName,
-                        "password", true, true, true, true,
+                        PASSWORD, true, true, true, true,
                         Collections.<GrantedAuthority>emptySet());
 
         return userDetails;
