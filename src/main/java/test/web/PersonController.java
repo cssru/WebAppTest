@@ -24,7 +24,6 @@ public class PersonController {
     public String addHomo(@Valid PersonDto personDto, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
-            model.addAttribute("personDto", personDto);
             return "index";
         }
 
