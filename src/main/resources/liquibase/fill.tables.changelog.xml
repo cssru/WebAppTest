@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="fill-1" author="cssru@mail.ru">
+        <insert tableName="people">
+            <column name="surname" value="Ivanoff"/>
+            <column name="name" value="Ivan"/>
+            <column name="lastname" value="Ivanoffich"/>
+            <column name="age" value="99"/>
+        </insert>
+        <rollback>
+            DELETE FROM people WHERE surname LIKE 'Ivanoff';
+        </rollback>
+    </changeSet>
+
+    <changeSet id="fill-2" author="cssru@mail.ru">
+        <insert tableName="logins">
+            <column name="login" value="admin"/>
+            <column name="password" value="123"/>
+            <column name="locked" value="0"/>
+            <column name="expires" value="0"/>
+            <column name="enabled" value="1"/>
+        </insert>
+        <insert tableName="logins">
+            <column name="login" value="user"/>
+            <column name="password" value="456"/>
+            <column name="locked" value="0"/>
+            <column name="expires" value="0"/>
+            <column name="enabled" value="1"/>
+        </insert>
+        <rollback>
+            DELETE FROM logins WHERE login LIKE 'admin';
+            DELETE FROM logins WHERE login LIKE 'user';
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
