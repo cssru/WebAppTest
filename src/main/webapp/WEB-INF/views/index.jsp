@@ -67,7 +67,12 @@
 			<tbody>
 			<c:forEach items="${allPersons}" var="nextPerson">
 			<tr>
-			   <td>${nextPerson.fullname}</td><td>${nextPerson.age}</td>
+			   <td>
+			   <c:out value="${nextPerson.fullname}"/>
+			   </td>
+			   <td>
+			   <c:out value="${nextPerson.age}"/>
+			   </td>
 			</tr>
 			</c:forEach>
 			</tbody>
