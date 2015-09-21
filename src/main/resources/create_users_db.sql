@@ -1,4 +1,4 @@
-CREATE TABLE Login (
+CREATE TABLE logins (
   id INTEGER PRIMARY KEY AUTO_INCREMENT,
   login VARCHAR(250) NOT NULL,
   password VARCHAR(30) NOT NULL,
@@ -13,5 +13,5 @@ CREATE TABLE Confirmation (
   confirmation_code VARCHAR(30) NOT NULL
 );
 
-INSERT INTO Login (login, password, locked, expired, enabled) VALUES ('admin', '123', 0, 0, 1);
-INSERT INTO Login (login, password, locked, expired, enabled) VALUES ('user', '456', 0, 0, 1);
+INSERT INTO logins (login, password, locked, expired, enabled) VALUES ('admin', '123', 0, 0, 1);
+INSERT INTO logins (login, password, locked, expired, enabled) VALUES ('user', '456', 0, 0, 1);
