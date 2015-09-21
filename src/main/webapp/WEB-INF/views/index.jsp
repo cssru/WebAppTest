@@ -20,7 +20,7 @@
             </form>
 			<p>Теперь давайте добавлять человеков</p>
 			<c:url var="addPersonUrl" value="/person.add" />
-			<form:form action="${addPersonUrl}" method="POST" commandName="personDto">
+			<form:form action="${addPersonUrl}" method="POST" modelAttribute="personDto">
                 <div>
                 <label for="surname">Фамилия</label>
                 </div>
