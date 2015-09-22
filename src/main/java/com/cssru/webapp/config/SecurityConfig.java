@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/homo.add").authenticated();
+                .antMatchers("/person.add").authenticated()
+                .antMatchers("/person.delete").authenticated();
         http.formLogin()
                 .loginPage("/")
                 .usernameParameter("j_username")

@@ -62,16 +62,21 @@
 			<c:if test="${!empty people}">
 			<table>
 			<thead>
-			<th>ФИО</th><th>Возраст</th>
+			    <th>ФИО</th>
+			    <th>Возраст</th>
+			    <th></th
 			</thead>
 			<tbody>
 			<c:forEach items="${people}" var="nextPerson">
 			<tr>
 			   <td>
-			   <c:out value="${nextPerson.fullname}"/>
+			        <c:out value="${nextPerson.fullname}"/>
 			   </td>
 			   <td>
-			   <c:out value="${nextPerson.age}"/>
+			        <c:out value="${nextPerson.age}"/>
+			   </td>
+			   <td>
+			       <a href="<c:url value="/person.delete/${nextPerson.id}"/>">Удалить</a>
 			   </td>
 			</tr>
 			</c:forEach>

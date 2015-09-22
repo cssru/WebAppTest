@@ -15,12 +15,29 @@ public class PersonDaoImpl implements PersonDao {
 
     @Override
     public void add(Person person) {
-        sessionFactory.getCurrentSession().save(person);
+        sessionFactory
+                .getCurrentSession()
+                .save(person);
     }
 
     @Override
     public List<Person> list() {
-        return sessionFactory.getCurrentSession().createQuery("from Person").list();
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("from Person")
+                .list();
+    }
+
+    @Override
+    public void delete(Long id) {
+        Object persistentObject = sessionFactory
+                .getCurrentSession()
+                .load(Person.class, id);
+        if (persistentObject != null) {
+            sessionFactory
+                    .getCurrentSession()
+                    .delete(persistentObject);
+        }
     }
 
 }

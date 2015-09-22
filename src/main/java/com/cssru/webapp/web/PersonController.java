@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import com.cssru.webapp.domain.Person;
@@ -20,7 +21,7 @@ public class PersonController {
 
 
     @RequestMapping(value = "/person.add", method = RequestMethod.POST)
-    public String addHomo(@Valid PersonDto personDto, BindingResult result, Model model) {
+    public String addPerson(@Valid PersonDto personDto, BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             return "index";
@@ -37,4 +38,13 @@ public class PersonController {
         model.addAttribute("people", personService.list());
         return "index";
     }
+
+    @RequestMapping("/person.delete/{id}")
+    public String deletePerson(@PathVariable("id") Long id, Model model) {
+        personService.delete(id);
+        model.addAttribute("people", personService.list());
+        model.addAttribute("personDto", new PersonDto());
+        return "index";
+    }
+
 }

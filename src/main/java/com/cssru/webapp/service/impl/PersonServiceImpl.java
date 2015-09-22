@@ -25,4 +25,10 @@ public class PersonServiceImpl implements PersonService {
     public List<Person> list() {
         return personDao.list();
     }
+
+    @Transactional
+    @Override
+    public void delete(Long id) {
+        personDao.delete(id);
+    }
 }

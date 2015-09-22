@@ -7,4 +7,5 @@ import java.util.List;
 public interface PersonDao {
     void add(Person person);
     List<Person> list();
+    void delete(Long id);
 }
