@@ -1,10 +1,10 @@
 package com.cssru.webapp.dao.impl;
 
+import com.cssru.webapp.dao.PersonDao;
+import com.cssru.webapp.domain.Person;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import com.cssru.webapp.dao.PersonDao;
-import com.cssru.webapp.domain.Person;
 
 import java.util.List;
 
@@ -30,13 +30,13 @@ public class PersonDaoImpl implements PersonDao {
 
     @Override
     public void delete(Long id) {
-        Object persistentObject = sessionFactory
+        Person persistentPerson = sessionFactory
                 .getCurrentSession()
-                .load(Person.class, id);
-        if (persistentObject != null) {
+                .get(Person.class, id);
+        if (persistentPerson != null) {
             sessionFactory
                     .getCurrentSession()
-                    .delete(persistentObject);
+                    .delete(persistentPerson);
         }
     }
 
