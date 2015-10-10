@@ -39,7 +39,7 @@ public class PersonController {
         return "index";
     }
 
-    @RequestMapping("/person.delete/{id}")
+    @RequestMapping(value = "/person.delete/{id}", method = RequestMethod.POST)
     public String deletePerson(@PathVariable("id") Long id, Model model) {
         personService.delete(id);
         model.addAttribute("people", personService.list());

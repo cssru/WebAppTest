@@ -76,7 +76,10 @@
 			        <c:out value="${nextPerson.age}"/>
 			   </td>
 			   <td>
-			       <a href="<c:url value="/person.delete/${nextPerson.id}"/>">Удалить</a>
+			       <form action="<c:url value="/person.delete/${nextPerson.id}"/>" method="POST">
+			         <input type="submit" value="Удалить"/>
+       				 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			       </form>
 			   </td>
 			</tr>
 			</c:forEach>
