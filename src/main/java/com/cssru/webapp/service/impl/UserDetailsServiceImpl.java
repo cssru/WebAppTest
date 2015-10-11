@@ -1,17 +1,17 @@
 package com.cssru.webapp.service.impl;
 
 import com.cssru.webapp.domain.Login;
+import com.cssru.webapp.security.Role;
+import com.cssru.webapp.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.cssru.webapp.domain.Login;
-import com.cssru.webapp.service.LoginService;
 
-import java.util.Collections;
+import java.util.Arrays;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -28,12 +28,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("Login not found");
         }
 
-        UserDetails userDetails =
+        return "admin".equalsIgnoreCase(userName)
+                ?
                 new User(login.getLogin(),
                         login.getPassword(),
-                        Collections.<GrantedAuthority>emptySet());
-
-        return userDetails;
+                        Arrays.asList(new SimpleGrantedAuthority(Role.ROLE_ADMIN.name())))
+                :
+                new User(login.getLogin(),
+                        login.getPassword(),
+                        Arrays.asList(new SimpleGrantedAuthority(Role.ROLE_USER.name())));
     }
-
 }
