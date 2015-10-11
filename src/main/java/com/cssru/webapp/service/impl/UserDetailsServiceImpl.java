@@ -28,14 +28,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("Login not found");
         }
 
-        return "admin".equalsIgnoreCase(userName)
+        return "admin".equalsIgnoreCase(login.getLogin())
                 ?
                 new User(login.getLogin(),
                         login.getPassword(),
-                        Arrays.asList(new SimpleGrantedAuthority(Role.ROLE_ADMIN.name())))
+                        Arrays.asList(new SimpleGrantedAuthority(Role.ADMIN.name())))
                 :
                 new User(login.getLogin(),
                         login.getPassword(),
-                        Arrays.asList(new SimpleGrantedAuthority(Role.ROLE_USER.name())));
+                        Arrays.asList(new SimpleGrantedAuthority(Role.USER.name())));
     }
 }

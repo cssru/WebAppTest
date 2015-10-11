@@ -1,5 +1,6 @@
 package com.cssru.webapp.config;
 
+import com.cssru.webapp.security.Role;
 import com.cssru.webapp.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import com.cssru.webapp.service.impl.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -26,8 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/resources/**", "/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers("/person.add").authenticated()
-                .antMatchers("/person.delete").authenticated();
+                .antMatchers("/person.add").hasRole(Role.ADMIN.name())
+                .antMatchers("/person.delete").hasRole(Role.ADMIN.name());
         http.formLogin()
                 .loginPage("/")
                 .usernameParameter("j_username")

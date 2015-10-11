@@ -10,15 +10,16 @@
 <title>Система добавления человеков</title>
 </head>
 <body>
-		<sec:authorize access="isAuthenticated()">
 			<p>
 				Вы вошли как <sec:authentication property="principal.username" />
+				и вы являетесь администратором системы.
+				Вы можете добавлять и удалять людей в системе.
 			</p>
 			<form action="<c:url value="/logout" />" method="POST">
 			<input type="submit" value="Выйти"/>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
             </form>
-			<p>Теперь давайте добавлять человеков</p>
+			<p>Введите данные нового человека:</p>
 			<c:url var="addPersonUrl" value="/person.add" />
 			<form:form action="${addPersonUrl}" method="POST" modelAttribute="personDto">
                 <div>
@@ -86,30 +87,5 @@
 			</tbody>
 			</table>
 			</c:if>
-		</sec:authorize>
-
-		<sec:authorize access="!isAuthenticated()">
-		    <c:if test="${!empty param.error}">
-		    <div>
-		    Не угадали пароль!
-		    </div>
-		    </c:if>
-		    <c:if test="${!empty param.logout}">
-		    <div>
-		    Вы успешно вышли из системы добавления человеков!
-		    </div>
-		    </c:if>
-			<c:url var="loginUrl" value="/j_spring_security_check" />
-			<form action="${loginUrl}" method="POST">
-				<div>
-				<input type="text" name="j_username" placeholder="Логин" required="true" autofocus="true"/>
-				</div>
-				<div>
-				<input type="password" name="j_password" placeholder="Пароль" required="true"/>
-				</div>
-				<input type="submit" value="Войти"/>
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-			</form>
-		</sec:authorize>
 </body>
 </html>

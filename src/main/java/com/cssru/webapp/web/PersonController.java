@@ -1,5 +1,8 @@
 package com.cssru.webapp.web;
 
+import com.cssru.webapp.domain.Person;
+import com.cssru.webapp.dto.PersonDto;
+import com.cssru.webapp.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,9 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.cssru.webapp.domain.Person;
-import com.cssru.webapp.dto.PersonDto;
-import com.cssru.webapp.service.PersonService;
 
 import javax.validation.Valid;
 
@@ -36,7 +36,7 @@ public class PersonController {
         model.addAttribute("personDto", new PersonDto());
 
         model.addAttribute("people", personService.list());
-        return "index";
+        return "admin/index";
     }
 
     @RequestMapping(value = "/person.delete/{id}", method = RequestMethod.POST)
@@ -44,7 +44,7 @@ public class PersonController {
         personService.delete(id);
         model.addAttribute("people", personService.list());
         model.addAttribute("personDto", new PersonDto());
-        return "index";
+        return "admin/index";
     }
 
 }
